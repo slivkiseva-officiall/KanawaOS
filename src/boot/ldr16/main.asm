@@ -64,7 +64,7 @@ msg_loading_ints:
 	db 'Loading ints...', 13, 10, 0
 
 msg_err_int_loading:
-	db 'Interrput has been no loaded, trying load kernel without int', 13, 10, 0
+	db 'Interrput has been no loaded, System halted.', 13, 10, 0
 
 msg_err_kernel_loadingL
 	db 'Boot panic: Kernel sectors not found!', 13, 10, 'System Halted.', 0
