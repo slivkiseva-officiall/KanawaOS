@@ -8,28 +8,28 @@ jmp start
 start:
 	mov si, msg_loading_ints
 	call puts
-
+	
 	mov si, int21h_dap
 	mov [disk], dl
 	mov ah, 0x42
 	int 0x13
 		jc .error_loading_int
-
+	
 	xor ax, ax
 	mov es, ax
-
+	
 	cli
 		mov [es:84], 0x4000
 		mov [es:86], 0x0000
 	sti
 	
-
+	
 	mov si, msg_loading_ints_done
 	call puts
 	mov si, msg_testing_ints_output
 	mov ax, 1
 	int 0x21
-
+	
 	push dx
 	mov si, kernel_dap
 	mov ah, 0x42
@@ -78,7 +78,7 @@ msg_loadig_ints_done:
 ; variables
 
 disk:
-	resb 1
+	byte 0 ; wa have no resb cuz it 16bit mode
 
 kernel_dap:
 	db 16
