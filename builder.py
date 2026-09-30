@@ -1,7 +1,7 @@
 import os
 
 if os.name == "nt":
-	print("przepraszam, ale moja OS triebujet kurwa linux!!!!!!!!!!!")
+	print("moja OS dla linuxa.")
 else:
 	print("ok")
 
