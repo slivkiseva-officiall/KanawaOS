@@ -9,30 +9,30 @@ jmp loading
 kmain:
 
 .loop1:
-	call shell
-	cmp ax, 1
-	je .turnoff
-	jmp .loop
+  call shell
+  cmp ax, 1
+  je .turnoff
+  jmp .loop
 .turnoff:
-	mov si, system_halted
-	mov ax, 1
-	int 0x21
-	cli
-	hlt
+  mov si, system_halted
+  mov ax, 1
+  int 0x21
+  cli
+    hlt
 
 kernel_panic:
-	; there is nothing
+  ; there is nothing
 
 loading:
-	; in user programs do this at first.
-	mov ax, 0x1000
-	mov ds, ax ; for working pointer
-	mov es, ax
+  ; in user programs do this at first.
+  mov ax, 0x1000
+  mov ds, ax ; for working pointer
+  mov es, ax
 
-	mov si, loaded_msg
-	mov ax, 1
-	int 0x21
-	jmp kmain
+  mov si, loaded_msg
+  mov ax, 1
+  int 0x21
+  jmp kmain
 
 system_halted:
-	db 'System Halted.', 13, 10, 0
+  db 'System Halted.', 13, 10, 0
