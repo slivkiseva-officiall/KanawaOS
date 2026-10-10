@@ -1,38 +1,24 @@
-; in user programs is you're done - jump on 0x10000
-
-
 org 0x10000
-bits 16
+btis 16
 
 jmp loading
 
 kmain:
+	mov si, msg
+	int 0x40
+	mov ax, 0
+	jmp halt
 
-.loop1:
-  call shell
-  cmp ax, 1
-  je .turnoff
-  jmp .loop
-.turnoff:
-  mov si, system_halted
-  mov ax, 1
-  int 0x21
-  cli
-    hlt
 
-kernel_panic:
-  ; there is nothing
+halt:
+	cmp ax, 0
+	jne kernelpanic
+	cli
+		hlt
 
-loading:
-  ; in user programs do this at first.
-  mov ax, 0x1000
-  mov ds, ax ; for working pointer
-  mov es, ax
+kernelpanic:
+	nop
 
-  mov si, loaded_msg
-  mov ax, 1
-  int 0x21
-  jmp kmain
+msg:
+	db 'loaded!', 10, 13, 0
 
-system_halted:
-  db 'System Halted.', 13, 10, 0
