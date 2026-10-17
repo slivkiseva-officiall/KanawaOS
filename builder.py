@@ -1,7 +1,19 @@
 import os
+import sys
+
+CC = input("enter C compiler (default: tcc)? ")
+
+if (CC == ""):
+        CC = "tcc"
+        
+
+if (os.system("nasm --version") != 0):
+    print("download nasm for compiling this OS")
+    sys.exit(0)
 
 if os.name == "nt":
 	print("moja OS dla linuxa.")
+    sys.exit(0)
 else:
 	print("ok")
 
