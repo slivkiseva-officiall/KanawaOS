@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import os
 import sys
 
@@ -6,7 +8,6 @@ CC = input("enter C compiler (default: tcc)? ")
 if (CC == ""):
         CC = "tcc"
         
-
 if (os.system("nasm --version") != 0):
     print("download nasm for compiling this OS")
     sys.exit(0)
@@ -17,7 +18,7 @@ if (version == '1'):
 else:
 	print("making KANAWAOS 16BIT")
 	print("making int 0x42")
-	if os.name == "nt":
+	if (os.name == "nt"):
 		os.system("md build/")
 		os.system("md build/int")
 		os.system("md build/int/16bit")

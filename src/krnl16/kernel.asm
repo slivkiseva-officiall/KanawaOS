@@ -3,7 +3,7 @@ btis 16
 
 jmp loading
 
-%include "../libs/16bit/kanawstr.asm"
+%include "libes/kanawstr.asm"
 
 loading:
 	cmp ax, 1

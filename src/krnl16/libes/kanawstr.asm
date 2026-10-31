@@ -1,4 +1,4 @@
-; i will not write org cuz it's library, not a file.
+; don't write org, it's lib
 
 strcmp:
   ; strcmp is using push for args, so it will use bp  
@@ -47,5 +47,17 @@ strcpy:
 	pop ax
 	pop bx
 	pop bp
+	ret
+strlen:
+	push si
+	xor ax, ax
+.loop:
+	lodsb
+	test al, al
+	jz .done
+	inc ax
+	jmp .loop
+.done:
+	pop si
 	ret
 
