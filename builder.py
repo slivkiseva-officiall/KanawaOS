@@ -31,3 +31,4 @@ else:
 	os.system("nasm -f bin src/int/16bit/system_int.asm -o build/int/16bit/0x42int.bin")
 	os.system("nasm -f bin src/boot/bootsect.asm -o build/boot/bootsect.bin")
 	os.system("nasm -f bin src/boot/ldr16/main.asm -o build/boot/main.bin")
+    os.system("dd if= of=disk.img conv=notrunc seek= bs=")

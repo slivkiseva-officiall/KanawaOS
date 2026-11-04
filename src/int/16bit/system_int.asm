@@ -28,8 +28,13 @@ input:
 	mov bp, sp
 	sub bp, cx
 .loop:
-	
+	mov ah, 0x00
 	int 0x16
+	cmp al, 0x0a
+		je .exit_enter
+	cmp al, 0x7f
+		je .loop_backspace
+	mov 
 
 output:
 	xor ax, ax
