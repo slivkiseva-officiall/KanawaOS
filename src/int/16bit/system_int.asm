@@ -34,7 +34,23 @@ input:
 		je .exit_enter
 	cmp al, 0x7f
 		je .loop_backspace
-	mov 
+	; so, there will be like that:
+	; for (int i = 0; i > cx; ++i) {
+	; 	memory[i + bp] = al;
+	;}
+	; so it will upside down (if i made mistake in english - i don't know english well)
+
+.write_to_varibale:
+
+
+.exit:
+	call .write_to_variable
+	pop bp
+	pop si
+	pop dx
+	pop cx
+	pop bx
+	pop ax
 
 output:
 	xor ax, ax
