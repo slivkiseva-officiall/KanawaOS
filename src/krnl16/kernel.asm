@@ -65,4 +65,4 @@ exit_inputed:
 prompt:
 	db '[KANAWAOS] > ', 0
 
-timee 8192-($-$$) db 0
+times 8192-($-$$) db 0

@@ -1,7 +1,9 @@
 #ifndef PORTS_H
 #define PORTS_H
 
-inline void inb() { // tcc will ignore inline
+#include "intlib.h"
+
+inline void inb(uint8 port, uint8 input) { // tcc will ignore inline
 	
 }
 

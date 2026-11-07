@@ -6,7 +6,7 @@ extern vga_init(void);
 
 void load() {
 	vga_init();
-
+	
 	__asm__("jmp kmain\n");
 }
 
