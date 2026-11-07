@@ -1,5 +1,5 @@
 bits 16
-org 0x4000
+org 0x4000 ; it won't earse IVT
 
 start:
 	push ax
@@ -37,10 +37,11 @@ input:
 	; so, there will be like that:
 	; for (int i = 0; i > cx; ++i) {
 	; 	memory[i + bp] = al;
-	;}
+	; }
 	; so it will upside down (if i made mistake in english - i don't know english well)
 
 .write_to_varibale:
+	; to write text in variable right we're need to do it from end.
 
 
 .exit:
